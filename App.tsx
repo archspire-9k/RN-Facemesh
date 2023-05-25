@@ -1,5 +1,5 @@
-import { runOnJS, runOnUI, useSharedValue } from 'react-native-reanimated'
-import React, { useEffect, useState, useRef } from 'react';
+import { useSharedValue } from 'react-native-reanimated'
+import React, { useEffect, useState } from 'react';
 
 import { Camera, useCameraDevices, CameraDevice, useFrameProcessor } from 'react-native-vision-camera';
 import {
