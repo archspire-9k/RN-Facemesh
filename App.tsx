@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useIsForeground } from './src/hooks/useIsForeground';
+import NewModuleButton from './src/components/NewModuleButton';
 
 
 function App(): JSX.Element {
@@ -84,12 +85,13 @@ function App(): JSX.Element {
 
   if (!cameraOn) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Turn on the camera</Text>
-        <TouchableOpacity onPress={() => setCameraOn(true)} style={{ marginVertical: 30, backgroundColor: '#28a745' }}>
-          <Text style={{ marginHorizontal: 20, marginVertical: 10, color: 'white' }}>ON</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Turn on the camera</Text>
+          <TouchableOpacity onPress={() => setCameraOn(true)} style={{ marginVertical: 30, backgroundColor: '#28a745' }}>
+            <Text style={{ marginHorizontal: 20, marginVertical: 10, color: 'white' }}>ON</Text>
+          </TouchableOpacity>
+          <NewModuleButton />
+        </View>
     );
   }
 
