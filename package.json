@@ -2,6 +2,28 @@
   "name": "RNFacemesh",
   "version": "0.0.1",
   "private": true,
+  "description": "Showcase a Fabric Native Component with Jetpack Compose",
+  "react-native": "js/index",
+  "source": "js/index",
+  "files": [
+    "js",
+    "android",
+    "ios",
+    "RTNFaceLandmark.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "keywords": ["react-native", "ios", "android"],
+  "repository": "https://github.com/<your_github_handle>/rtn-centered-text",
+  "author": "<Your Name> <your_email@your_provider.com> (https://github.com/<your_github_handle>)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/<your_github_handle>/rtn-centered-text/issues"
+  },
+  "homepage": "https://github.com/<your_github_handle>/rtn-centered-text#readme",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -9,10 +31,6 @@
     "start": "react-native start",
     "test": "jest",
     "connect": "adb -s LMG820UM24621ad1 reverse tcp:8081 tcp:8081"
-  },
-  "dependencies": {
-    "react": "18.2.0",
-    "react-native": "0.71.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -33,5 +51,14 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "RTNFaceLandmarkSpecs",
+    "type": "components",
+    "jsSrcsDir": "js"
   }
 }
