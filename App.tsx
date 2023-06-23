@@ -15,10 +15,11 @@ function App(): JSX.Element {
 
   if (!cameraOn) {
     return (
-      <RTNFaceLandmarker
-            text='History'
-            style={{ width: '100%', height: 30 }}
-          />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
+        <RTNFaceLandmarker/>
+        <NewModuleButton/>
+      </View>
+      
     );
   }
 
