@@ -21,7 +21,7 @@ function App(): JSX.Element {
       }}>
       <View>
           <TouchableOpacity onPress={() => setCameraOn(true)} style={{ marginVertical: 30, backgroundColor: '#28a745' }}>
-            <Text style={{ marginHorizontal: 20, marginVertical: 10, color: 'white' }}>ON</Text>
+            <Text style={{ marginHorizontal: 20, marginVertical: 10, color: 'white', textAlign: 'center' }}>ON</Text>
           </TouchableOpacity>
           <NewModuleButton/>
         </View>
