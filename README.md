@@ -1,5 +1,5 @@
 # RN-Facemesh
-React Native and Tensorflow to contruct high detail facemesh
+React Native and MLKit Face Landmarker to contruct high detail facemesh
 
 ## Todo list
 - ~Setup RN vision camera library~ Done
