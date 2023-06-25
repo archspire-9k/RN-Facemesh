@@ -16,7 +16,7 @@ function App(): JSX.Element {
   if (!cameraOn) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
-        <RTNFaceLandmarker/>
+        <RTNFaceLandmarker style={{width: 300, height: 300}}/>
         <NewModuleButton/>
       </View>
       
