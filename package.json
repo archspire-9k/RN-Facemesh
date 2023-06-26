@@ -13,6 +13,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "rtn-camerax": "../RTNCameraX",
     "rtn-face-landmarker": "../RTNFaceLandmarker"
   },
   "devDependencies": {
