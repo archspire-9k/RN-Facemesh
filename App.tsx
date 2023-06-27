@@ -2,31 +2,60 @@ import React, { useEffect, useState } from 'react';
 
 import {
   View,
-  Button,
   StyleSheet,
-  Text,
-  TouchableOpacity,
+  Platform,
+  Alert,
+  Text
 } from 'react-native';
-import NewModuleButton from './src/components/NewModuleButton';
+
 import RTNFaceLandmarker from 'rtn-face-landmarker/js/RTNFaceLandmarkerNativeComponent';
+import { check, PERMISSIONS, RESULTS, openSettings, request } from 'react-native-permissions';
+
 
 function App(): JSX.Element {
-  const [cameraOn, setCameraOn] = useState(false)
+  const [isCameraPermissionGranted, setIsCameraPermissionGranted] = useState(false);
 
-  if (!cameraOn) {
+  //TODO: Add support for iOS
+  useEffect(() => {
+    checkCameraPermission();
+  }, [])
+
+  const checkCameraPermission = async () => {
+    request(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA)
+      .then(async (result: any) => {
+        switch (result) {
+          case RESULTS.UNAVAILABLE:
+            console.log('This feature is not available (on this device / in this context)');
+            break;
+          case RESULTS.DENIED:
+            Alert.alert("Permission Denied", "You need to grant camera permission first");
+            openSettings();
+            break;
+          case RESULTS.GRANTED:
+            setIsCameraPermissionGranted(true);
+            break;
+          case RESULTS.BLOCKED:
+            Alert.alert("Permission Blocked", "You need to grant camera permission first");
+            openSettings();
+            break;
+        }
+      })
+  };
+
+  if (isCameraPermissionGranted) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
-        <RTNFaceLandmarker style={{width: 300, height: 300}}/>
-        <NewModuleButton/>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+        <RTNFaceLandmarker />
       </View>
-      
+
+    );
+  } else {
+    return (
+      <Text style={{ fontSize: 30, color: 'red' }}>
+        You need to grant camera permission first
+      </Text>
     );
   }
-
-  return (
-    <>
-    </>
-  );
 
 }
 
