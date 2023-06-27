@@ -51,9 +51,11 @@ function App(): JSX.Element {
     );
   } else {
     return (
-      <Text style={{ fontSize: 30, color: 'red' }}>
-        You need to grant camera permission first
-      </Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+        <Text style={{ fontSize: 30, color: 'red', alignSelf: 'center' }}>
+          You need to grant camera permission first
+        </Text>
+      </View>
     );
   }
 
