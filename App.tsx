@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Platform,
   Alert,
-  Text
+  Text,
+  useWindowDimensions
 } from 'react-native';
 
 import RTNFaceLandmarker from 'rtn-face-landmarker/js/RTNFaceLandmarkerNativeComponent';
@@ -14,7 +15,7 @@ import { check, PERMISSIONS, RESULTS, openSettings, request } from 'react-native
 
 function App(): JSX.Element {
   const [isCameraPermissionGranted, setIsCameraPermissionGranted] = useState(false);
-
+  const dimension = useWindowDimensions()
   //TODO: Add support for iOS
   useEffect(() => {
     checkCameraPermission();
@@ -45,7 +46,7 @@ function App(): JSX.Element {
   if (isCameraPermissionGranted) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
-        <RTNFaceLandmarker />
+        <RTNFaceLandmarker style = {dimension} />
       </View>
 
     );
